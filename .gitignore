@@ -1,0 +1,20 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# DVC cache and local credentials — never commit these
+.dvc/cache
+.dvc/tmp
+.dvc/tmp/gdrive-user-credentials.json
+
+# Model/data artifacts handled by DVC, not Git
+*.h5
+data/raw/*
+data/processed/*
+models/*
+!models/.gitkeep
+
+# Misc
+.DS_Store
+*.log
