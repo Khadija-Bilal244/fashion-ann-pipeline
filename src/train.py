@@ -75,6 +75,7 @@ def main():
 
     print(f"Model saved to {MODELS_DIR}/model.h5")
     print(f"History saved to {MODELS_DIR}/history.csv")
+    print("just for diff")
 
 
 if __name__ == "__main__":
