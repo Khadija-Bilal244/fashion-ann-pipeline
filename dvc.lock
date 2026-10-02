@@ -5,8 +5,8 @@ stages:
     deps:
     - path: src/prepare.py
       hash: md5
-      md5: 966995d078f25d4c0ac9019ed99eba71
-      size: 982
+      md5: d226572e10acc173401c99ece615944e
+      size: 1020
     outs:
     - path: data/raw
       hash: md5
