@@ -12,7 +12,7 @@ Run standalone with:
 import os
 
 import numpy as np
-from tensorflow.keras.datasets import fashion_mnist
+from keras.datasets import fashion_mnist
 
 RAW_DIR = os.path.join("data", "raw")
 
