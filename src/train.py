@@ -16,7 +16,7 @@ import os
 import numpy as np
 import pandas as pd
 import yaml
-from tensorflow.keras import layers, models, optimizers
+from keras import layers, models, optimizers
 
 PROCESSED_DIR = os.path.join("data", "processed")
 MODELS_DIR = "models"

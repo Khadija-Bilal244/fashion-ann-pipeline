@@ -5,13 +5,13 @@ stages:
     deps:
     - path: src/prepare.py
       hash: md5
-      md5: 2808f339ac9b12093793bd8edabdccb3
-      size: 993
+      md5: 966995d078f25d4c0ac9019ed99eba71
+      size: 982
     outs:
     - path: data/raw
       hash: md5
-      md5: d15319cb79df9dfd21b0bf98474019b0.dir
-      size: 31220563
+      md5: e58ffa629ba2153db86a355835d5032b.dir
+      size: 30869943
       nfiles: 2
   preprocess:
     cmd: python src/preprocess.py
