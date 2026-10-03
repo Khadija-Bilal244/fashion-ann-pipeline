@@ -7,7 +7,6 @@
 ```bash
 mkdir fashion-ann-pipeline && cd fashion-ann-pipeline
 git init
-# copy README.md, .gitignore, requirements.txt from this bundle in here
 git add README.md .gitignore requirements.txt
 git commit -m "Initial commit: README, gitignore, requirements"
 git branch -M main
@@ -278,7 +277,6 @@ dvc push
 ```bash
 git checkout main
 git checkout -b teammate-sim
-# edit preprocess.py's normalization, e.g. switch to (x - mean) / std instead of x / 255
 python src/preprocess.py
 dvc add data/processed
 git add src/preprocess.py data/processed.dvc
@@ -290,8 +288,6 @@ dvc push
 
 ```bash
 git checkout main
-# independently edit preprocess.py's normalization differently,
-# e.g. min-max scaling with clipping
 python src/preprocess.py
 dvc add data/processed
 git add src/preprocess.py data/processed.dvc
@@ -313,17 +309,12 @@ Screenshot both.
 ### E4. Resolve
 
 ```bash
-# open src/preprocess.py, manually reconcile both normalization
-# approaches into one function, remove conflict markers
 git add src/preprocess.py
-
-# decide which processed-data version is authoritative, OR regenerate
-# a merged version by re-running preprocess.py after resolving the code:
 python src/preprocess.py
 dvc add data/processed
 git add data/processed.dvc
 
-dvc checkout   # sync working directory to the resolved pointer
+dvc checkout  
 ```
 
 ### E5. Finish
