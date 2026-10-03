@@ -1,13 +1,4 @@
-# Assignment 3 — Full Walkthrough
-
-This guide gives you the exact commands for every sub-task (A1–E5), plus the
-written explanations the assignment asks for. Run these yourself, in order,
-in your own terminal — take the screenshots as you go, since only you can
-produce those (they have to show *your* GitHub account, *your* Google Drive
-folder, and *your* terminal). The `src/`, `params.yaml`, and `dvc.yaml` files
-in this bundle are ready to drop in as-is.
-
----
+# Assignment 3 (MLOPS)
 
 ## Part A — Git Fundamentals
 
@@ -35,12 +26,12 @@ then `src/evaluate.py`, then `params.yaml`, then `dvc.yaml`, committing each
 one separately so you get at least 6 incremental commits, e.g.:
 
 ```bash
-git add src/prepare.py        && git commit -m "Add prepare.py (B1)"
-git add src/preprocess.py     && git commit -m "Add preprocess.py (B2)"
-git add src/train.py          && git commit -m "Add train.py (B3)"
-git add src/evaluate.py       && git commit -m "Add evaluate.py (B4)"
-git add params.yaml           && git commit -m "Add params.yaml (D1)"
-git add dvc.yaml              && git commit -m "Add dvc.yaml pipeline (D2)"
+git add src/prepare.py; git commit -m "Add prepare.py (B1)"
+git add src/preprocess.py; git commit -m "Add preprocess.py (B2)"
+git add src/train.py; git commit -m "Add train.py (B3)"
+git add src/evaluate.py; git commit -m "Add evaluate.py (B4)"
+git add params.yaml; git commit -m "Add params.yaml (D1)"
+git add dvc.yaml; git commit -m "Add dvc.yaml pipeline (D2)"
 ```
 
 ### A3. Log variants — screenshot each, then explain
@@ -110,21 +101,21 @@ git rebase main
 git add <resolved-file>
 git rebase --continue
 
-git log --oneline --graph --all   # before/after screenshot
+git log --oneline --graph --all   
 ```
 
 ### A7. Reset scenario
 
 ```bash
 git checkout -b scratch
-echo "throwaway 1" >> scratch.txt && git add scratch.txt && git commit -m "throwaway 1"
-echo "throwaway 2" >> scratch.txt && git add scratch.txt && git commit -m "throwaway 2"
+echo "throwaway 1" >> scratch.txt; git add scratch.txt; git commit -m "throwaway 1"
+echo "throwaway 2" >> scratch.txt; git add scratch.txt; git commit -m "throwaway 2"
 
 git reset --soft HEAD~1
-git status   # changes from "throwaway 2" are staged, ready to re-commit
+git status   
 
 git reset --hard HEAD~1
-git status   # working directory is clean; the discarded commit's changes are gone
+git status   
 ```
 
 Observed difference: `--soft` rewinds the branch pointer but leaves the
@@ -149,7 +140,7 @@ git commit -m "Reorganize scripts into src/ and remove scratch file"
 
 ```bash
 pip install "dvc[gdrive]"
-dvc init          # run on dev, after A1's initial commit exists
+dvc init          
 git add .dvc .dvcignore
 git commit -m "dvc init"
 ```
@@ -338,22 +329,9 @@ dvc checkout   # sync working directory to the resolved pointer
 ### E5. Finish
 
 ```bash
-dvc status          # should report a clean state
+dvc status         
 git commit -m "Merge teammate-sim: resolve normalization + data conflict"
-dvc repro            # prove the merged pipeline is still reproducible
+dvc repro           
 git push origin main
 dvc push
 ```
-
----
-
-## Report checklist (2–4 page PDF)
-
-- [ ] Screenshots + explanations for A3 (log variants) and A4 (diff variants,
-      two-dot vs three-dot)
-- [ ] A6 before/after graph, A7 soft-vs-hard explanation
-- [ ] C5 Google Drive folder screenshot showing uploaded files
-- [ ] Final `params.yaml` and `dvc.yaml`
-- [ ] D3 and D4 `dvc repro` console logs + your rerun/skip explanation
-- [ ] E3 conflict screenshots (code + `.dvc` pointer) and E4 resolution
-- [ ] v1 vs v2 `metrics.json` comparison table
